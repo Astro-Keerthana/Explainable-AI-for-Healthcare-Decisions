@@ -60,21 +60,21 @@ Policy Recommendation Report
 
 xai-shap-healthcare/
 │
-├──  XAI_SHAP_Pipeline.ipynb       # Main Jupyter notebook (full pipeline)
+├──  XAI_SHAP_Pipeline.ipynb       
 │
-├──  xai_outputs/                  # All generated outputs
-│   ├── 01_dataset_overview.png      # Class distribution + correlation
-│   ├── 02_model_comparison.png      # CV AUC + ROC curves
-│   ├── 03_shap_bar_global.png       # Global feature importance
-│   ├── 04_shap_beeswarm.png         # Feature impact distribution
-│   ├── 05_shap_dependence.png       # Top 4 feature dependence plots
-│   ├── 06_shap_force_plots.png      # Individual patient explanations
-│   ├── 07_trust_study.png           # Before/after trust comparison
-│   └── XAI_Policy_Report.pdf        # Full policy recommendation report
+├──  xai_outputs/                  
+│   ├── 01_dataset_overview.png      
+│   ├── 02_model_comparison.png     
+│   ├── 03_shap_bar_global.png       
+│   ├── 04_shap_beeswarm.png         
+│   ├── 05_shap_dependence.png       
+│   ├── 06_shap_force_plots.png     
+│   ├── 07_trust_study.png          
+│   └── XAI_Policy_Report.pdf        
 │
-├──  requirements.txt              # Python dependencies
-├──  README.md                     # This file
-└──  LICENSE                       # MIT License
+├──  requirements.txt              
+├──  README.md                     
+└──  LICENSE                       
 
 
 ---
