@@ -168,6 +168,14 @@ Shows **per-patient explanations** for:
 Answers: *"Why did the model make THIS specific decision?"*
 
 ---
+## Output
+<img width="1349" height="490" alt="image" src="https://github.com/user-attachments/assets/65e56b71-8db9-419b-bdc5-79bec6736376" />
+<img width="1366" height="490" alt="image" src="https://github.com/user-attachments/assets/ccebc105-d073-430d-8f2f-3b1cd26375d9" />
+<img width="811" height="730" alt="image" src="https://github.com/user-attachments/assets/74985d68-9e20-4a99-a2ba-9d54b9ea64ea" />
+<img width="765" height="730" alt="image" src="https://github.com/user-attachments/assets/4d0f3497-08e3-4bc4-9a60-6177c4d6e919" />
+<img width="1368" height="980" alt="image" src="https://github.com/user-attachments/assets/bc3ef528-71d3-4b0c-8ef1-c60242e124ef" />
+<img width="1580" height="1212" alt="image" src="https://github.com/user-attachments/assets/8e49dd4b-a10f-4e2d-a75f-0e07ac63d795" />
+<img width="1580" height="1176" alt="image" src="https://github.com/user-attachments/assets/d7e1dfbd-38ed-4634-8fa4-576227e60ff1" />
 
 ##  Trust Study
 
