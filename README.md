@@ -186,4 +186,12 @@ A simulated before/after study measured AI trust across **4 stakeholder groups**
 
 ---
 
+## References
+1. Lundberg, S. M., & Lee, S. I. (2017). A unified approach to interpreting model predictions. NeurIPS.
+2. Tonekaboni, S., Joshi, S., McCradden, M. D., & Goldenberg, A. (2019). What clinicians want: contextualizing explainable machine learning for clinical end use. MLHC.
+3. Holzinger, A., Langs, G., Denk, H., Zatloukal, K., & Müller, H. (2019). Causability and explainability of AI in medicine. WIREs Data Mining.
+4. Arrieta, A. B., et al. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges. Information Fusion.
+5. European Commission. (2021). Proposal for a Regulation on Artificial Intelligence (AI Act).
+6. FDA. (2021). Artificial Intelligence/Machine Learning-Based Software as a Medical Device Action Plan.
+
 This project addresses that gap by building a full XAI pipeline.
