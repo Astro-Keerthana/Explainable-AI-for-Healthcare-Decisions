@@ -32,8 +32,158 @@
 ---
 
 ## Overview
+
 Despite strong diagnostic performance, AI models in healthcare face a critical adoption
 barrier: **lack of transparency**. Clinicians, patients, and regulators cannot trust
 decisions they cannot understand.
+
+Black-box AI Model
+↓
+SHAP Analysis
+↓
+Feature-level Explanations
+↓
+Trust Measurement Study
+↓
+Policy Recommendation Report
+
+
+**Outcomes:**
+-  Breast cancer diagnosis model with **AUC > 0.97**
+-  Full SHAP explanation suite (global + local + dependence)
+-  Simulated trust study showing **~92% trust improvement** after XAI
+-  Auto-generated 7-section **PDF policy report**
+
+---
+
+##  Project Structure
+
+xai-shap-healthcare/
+│
+├──  XAI_SHAP_Pipeline.ipynb       # Main Jupyter notebook (full pipeline)
+│
+├──  xai_outputs/                  # All generated outputs
+│   ├── 01_dataset_overview.png      # Class distribution + correlation
+│   ├── 02_model_comparison.png      # CV AUC + ROC curves
+│   ├── 03_shap_bar_global.png       # Global feature importance
+│   ├── 04_shap_beeswarm.png         # Feature impact distribution
+│   ├── 05_shap_dependence.png       # Top 4 feature dependence plots
+│   ├── 06_shap_force_plots.png      # Individual patient explanations
+│   ├── 07_trust_study.png           # Before/after trust comparison
+│   └── XAI_Policy_Report.pdf        # Full policy recommendation report
+│
+├──  requirements.txt              # Python dependencies
+├──  README.md                     # This file
+└──  LICENSE                       # MIT License
+
+
+---
+
+##  Workflow
+
+The project follows a 5-phase pipeline.
+
+Phase 1 ── Dataset Loading & EDA
+└─ Wisconsin Breast Cancer Dataset
+└─ Class balance, feature correlation
+
+Phase 2 ── Model Training & Selection
+└─ Logistic Regression, Random Forest,
+Gradient Boosting, XGBoost
+└─ 5-Fold CV + ROC comparison
+
+Phase 3 ── SHAP Explainability
+└─ TreeExplainer / LinearExplainer
+└─ Summary, Beeswarm, Dependence, Force plots
+
+Phase 4 ── Trust Measurement Study
+└─ Before/After SHAP exposure
+└─ 4 stakeholder groups (N=120)
+
+Phase 5 ── Policy Report Generation
+└─ Auto-generated PDF
+└─ 7 policy recommendations
+
+
+---
+
+##  Dataset
+
+| **Property**     | **Detail**                                      |
+|------------------|-------------------------------------------------|
+| Name             | Wisconsin Breast Cancer Diagnostic Dataset      |
+| Source           | `sklearn.datasets.load_breast_cancer()`         |
+| Samples          | 569                                             |
+| Features         | 30 numerical (cell nucleus measurements)        |
+| Classes          | Malignant (1) / Benign (0)                      |
+| Class Balance    | ~37% Malignant / ~63% Benign                    |
+| Preprocessing    | StandardScaler normalization                    |
+| Split            | 80% Train / 20% Test (stratified)               |
+
+**Top diagnostic features identified by SHAP:**
+- `worst radius`
+- `worst perimeter`
+- `mean concave points`
+- `worst concave points`
+- `worst area`
+
+---
+
+##  Models
+
+Four classifiers were trained and compared:
+
+| **Model**             | **CV AUC (5-Fold)**  | **Test AUC** | **Test Accuracy** |
+|-----------------------|----------------------|--------------|-------------------|
+| Logistic Regression   | ~0.990 ± 0.007       | ~0.994       | ~96.5%            |
+| Random Forest         | ~0.993 ± 0.005       | ~0.995       | ~97.4%            |
+| Gradient Boosting     | ~0.994 ± 0.004       | ~0.996       | ~97.4%            |
+| **XGBoost**           | **~0.996 ± 0.003**   | **~0.997**   | **~98.2%**        |
+
+> The best-performing model is automatically selected and used for all SHAP analysis.
+
+---
+
+##  SHAP Visualizations
+
+### 1. Global Feature Importance (Bar Plot)
+Shows the **average impact** of each feature across all predictions.
+Answers: *"Which features matter most overall?"*
+
+### 2. Beeswarm Plot
+Shows **direction and magnitude** of each feature's impact.
+Red = high feature value | Blue = low feature value.
+Answers: *"How does each feature push predictions?"*
+
+### 3. Dependence Plots
+Shows the **relationship** between a feature's value and its SHAP value.
+Answers: *"At what threshold does this feature become dangerous?"*
+
+### 4. Force Plots (Individual Cases)
+Shows **per-patient explanations** for:
+-  True Positive — correctly identified malignant
+-  True Negative — correctly identified benign
+-  False Positive — incorrectly flagged as malignant
+
+Answers: *"Why did the model make THIS specific decision?"*
+
+---
+
+##  Trust Study
+
+A simulated before/after study measured AI trust across **4 stakeholder groups**:
+
+| **Group**          | **N** | **Trust Before** | **Trust After** | **Change**  |
+|--------------------|-------|------------------|-----------------|-------------|
+| Clinicians         | 40    | ~4.2 / 10        | ~7.8 / 10       | +3.6 (+86%) |
+| Radiologists       | 35    | ~4.8 / 10        | ~8.1 / 10       | +3.3 (+69%) |
+| Medical Students   | 25    | ~3.5 / 10        | ~7.2 / 10       | +3.7 (+106%)|
+| Policy Makers      | 20    | ~3.0 / 10        | ~6.8 / 10       | +3.8 (+127%)|
+| **Overall**        | **120**| **~3.9 / 10**   | **~7.5 / 10**   | **+92%**    |
+
+> Scale: 1 = No trust at all → 10 = Complete trust
+> Methodology based on: Tonekaboni et al. (2019), Holzinger et al. (2020)
+
+---
 
 This project addresses that gap by building a full XAI pipeline.
